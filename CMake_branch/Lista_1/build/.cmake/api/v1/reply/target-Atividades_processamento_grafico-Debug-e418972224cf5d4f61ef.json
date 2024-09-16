@@ -11,15 +11,11 @@
 		"commands" : 
 		[
 			"add_executable",
-			"target_link_libraries",
-			"set_property",
-			"find_package",
-			"set_target_properties"
+			"target_link_libraries"
 		],
 		"files" : 
 		[
-			"CMakeLists.txt",
-			"/usr/share/cmake-3.28/Modules/FindOpenGL.cmake"
+			"CMakeLists.txt"
 		],
 		"nodes" : 
 		[
@@ -37,28 +33,6 @@
 				"file" : 0,
 				"line" : 13,
 				"parent" : 0
-			},
-			{
-				"command" : 3,
-				"file" : 0,
-				"line" : 5,
-				"parent" : 0
-			},
-			{
-				"file" : 1,
-				"parent" : 3
-			},
-			{
-				"command" : 2,
-				"file" : 1,
-				"line" : 673,
-				"parent" : 4
-			},
-			{
-				"command" : 4,
-				"file" : 1,
-				"line" : 671,
-				"parent" : 4
 			}
 		]
 	},
@@ -110,12 +84,10 @@
 				"role" : "libraries"
 			},
 			{
-				"backtrace" : 5,
 				"fragment" : "/usr/lib/x86_64-linux-gnu/libGLX.so",
 				"role" : "libraries"
 			},
 			{
-				"backtrace" : 6,
 				"fragment" : "/usr/lib/x86_64-linux-gnu/libOpenGL.so",
 				"role" : "libraries"
 			}

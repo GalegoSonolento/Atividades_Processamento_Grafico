@@ -8,7 +8,8 @@ using namespace std;
 #include "glad.h"
 #include <GLFW/glfw3.h>
 
-const int steps = 100;
+const int steps = 1000;
+// para fazer um círculo propriamente dito, escrevo 1000 triângulos em circunferência, assim ele fica smooth
 const float angle = 3.1415926 * 2.f / steps;
 
 void key_callback(GLFWwindow* window, int key, int scancode, int action, int mode);
@@ -16,7 +17,7 @@ void key_callback(GLFWwindow* window, int key, int scancode, int action, int mod
 int setupShader();
 int setupGeometry();
 
-const GLuint WIDTH = 800, HEIGHT = 600;
+const GLuint WIDTH = 800, HEIGHT = 800;
 
 const GLchar* vertexShaderSource = "#version 400\n"
 "layout (location = 0) in vec3 position;\n"

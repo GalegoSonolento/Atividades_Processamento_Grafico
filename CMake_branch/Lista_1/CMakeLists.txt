@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.28.0)
+cmake_minimum_required(VERSION 3.22.0)
 project(Atividades_processamento_grafico VERSION 1.0.0)
 cmake_policy(SET CMP0072 NEW)
 
