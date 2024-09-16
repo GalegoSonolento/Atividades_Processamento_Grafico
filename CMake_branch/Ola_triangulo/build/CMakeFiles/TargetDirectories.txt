@@ -1,0 +1,3 @@
+/home/haaghenrique/Documents/repos/Atividades_Processamento_Grafico/CMake_branch/Ola_triangulo/build/CMakeFiles/Atividades_processamento_grafico.dir
+/home/haaghenrique/Documents/repos/Atividades_Processamento_Grafico/CMake_branch/Ola_triangulo/build/CMakeFiles/edit_cache.dir
+/home/haaghenrique/Documents/repos/Atividades_Processamento_Grafico/CMake_branch/Ola_triangulo/build/CMakeFiles/rebuild_cache.dir

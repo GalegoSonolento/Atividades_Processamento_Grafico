@@ -1,0 +1,14 @@
+[
+{
+  "directory": "/home/haaghenrique/Documents/repos/Atividades_Processamento_Grafico/CMake_branch/Ola_triangulo/build",
+  "command": "/usr/bin/c++   -g -o CMakeFiles/Atividades_processamento_grafico.dir/src/main.cpp.o -c /home/haaghenrique/Documents/repos/Atividades_Processamento_Grafico/CMake_branch/Ola_triangulo/src/main.cpp",
+  "file": "/home/haaghenrique/Documents/repos/Atividades_Processamento_Grafico/CMake_branch/Ola_triangulo/src/main.cpp",
+  "output": "CMakeFiles/Atividades_processamento_grafico.dir/src/main.cpp.o"
+},
+{
+  "directory": "/home/haaghenrique/Documents/repos/Atividades_Processamento_Grafico/CMake_branch/Ola_triangulo/build",
+  "command": "/usr/bin/c89-gcc   -g -o CMakeFiles/Atividades_processamento_grafico.dir/src/glad.c.o -c /home/haaghenrique/Documents/repos/Atividades_Processamento_Grafico/CMake_branch/Ola_triangulo/src/glad.c",
+  "file": "/home/haaghenrique/Documents/repos/Atividades_Processamento_Grafico/CMake_branch/Ola_triangulo/src/glad.c",
+  "output": "CMakeFiles/Atividades_processamento_grafico.dir/src/glad.c.o"
+}
+]
