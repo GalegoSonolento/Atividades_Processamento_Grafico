@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include <assert.h>
+//biblioteca da linguagem
 #include <math.h>
 
 using namespace std;
@@ -8,14 +9,32 @@ using namespace std;
 #include "glad.h"
 #include <GLFW/glfw3.h>
 
-const int steps = 1000;
+//vector
+#include <vector>
+
+const float pi = 3.14159;
+
+/* -> Código pra criar o Pac-man
+//const int steps = 1000;
 // para fazer um círculo propriamente dito, escrevo 1000 triângulos em circunferência, assim ele fica smooth
+
+//const int steps = 8; // para fazer octógono
+
+const int steps = 100;
 const float angle = 3.1415926 * 2.f / steps;
+*/
+
+/*
+//-> Código pra rodela da pizza
+const int steps_pizza = 100;
+const float angle_pizza = 3.1415926 * 2.f / steps_pizza;
+*/
 
 void key_callback(GLFWwindow* window, int key, int scancode, int action, int mode);
 
 int setupShader();
 int setupGeometry();
+int createCircle(int nPoints, float radius = 0.5);
 
 const GLuint WIDTH = 800, HEIGHT = 800;
 
@@ -82,36 +101,24 @@ int setupShader()
 int setupGeometry()
 {
 	GLfloat vertices[] = {
+		/* -> Vértices do Pac-Man
 		//x     y    z
 		//T0
-		-0.99,  0.0, 0.0, //v0
-		-0.2,   0.5, 0.0, //v1
- 		-0.2,  -0.5, 0.0, //v2
+		0.0,  0.0,  0.0, //v0
+		0.9,  0.9,  0.0, //v1
+ 		0.9,  -0.9, 0.0  //v2
+		*/
+	    //-> Triângulo da Pizza
+		//T0
+		//x    y    z
+		-0.8,  0.0, 0.0, //v0
+		 0.7,  0.7, 0.0, //v1
+		 0.7, -0.7, 0.0, //v2
 		//T1
-        //x     y    z
-        0.99,  0.0, 0.0, //v3
-        0.2,   0.5, 0.0, //v4
-        0.2,  -0.5, 0.0, //v5
-        //T2
-        //x    y      z
-        -0.99, 0.2,  0.0, //v6
-        -0.2,  0.7,  0.0, //v7
-        -0.99, 0.99, 0.0, //v8
-        //T3
-        //x    y     z
-        0.99,  0.2,  0.0, //v9
-        0.2,  0.7,  0.0, //v10
-        0.99, 0.99, 0.0, //v11
-		//T4
-        //x     y      z
-        -0.99, -0.2,  0.0, //v12
-        -0.99, -0.99, 0.0, //v13
-        -0.2,  -0.7,  0.0, //v14
-		//T5
-        //x     y     z
-        0.99, -0.2,  0.0, //v15
-        0.99, -0.99, 0.0, //v16
-        0.2,  -0.7,  0.0  //v17
+		//x    y    z
+		-0.8,  0.0, 0.0, //v0
+		 0.93, 0.8, 0.0, //v1
+		 0.93,-0.8, 0.0  //v2
 			  
 	};
 
@@ -119,6 +126,50 @@ int setupGeometry()
 	glGenBuffers(1, &VBO);
 	glBindBuffer(GL_ARRAY_BUFFER, VBO);
 	glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
+
+	glGenVertexArrays(1, &VAO);
+	glBindVertexArray(VAO);
+	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(GLfloat), (GLvoid*)0);
+	glEnableVertexAttribArray(0);
+
+	glBindBuffer(GL_ARRAY_BUFFER, 0); 
+
+	glBindVertexArray(0); 
+
+	return VAO;
+}
+
+int createCircle(int nPoints, float radius) {
+	
+	vector <GLfloat> vertices;
+
+
+	float angle = 0.0;
+	float slice = 2 * pi / (float)nPoints;
+
+	//adicionar ponto de origem (0, 0, 0) - centro do circulo
+	vertices.push_back(0.0); // Xc
+	vertices.push_back(0.0); // Yc
+	vertices.push_back(0.0); // Zc
+
+	for (int i = 0; i < nPoints; i++) {
+		float x = radius * cos(angle);
+		float y = radius * sin(angle);
+		float z = 0.0;
+
+		vertices.push_back(x); // x
+		vertices.push_back(y); // y
+		vertices.push_back(z); // z
+
+		angle = angle + slice;
+	}
+
+	//configuração dos buffers VBO e VAO
+
+	GLuint VBO, VAO;
+	glGenBuffers(1, &VBO);
+	glBindBuffer(GL_ARRAY_BUFFER, VBO);
+	//glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
 
 	glGenVertexArrays(1, &VAO);
 	glBindVertexArray(VAO);
@@ -161,6 +212,8 @@ int main()
 	GLuint VAO = setupGeometry();
 
 	GLint colorLoc = glGetUniformLocation(shaderID, "inputColor");
+	GLint colorLoc2 = glGetUniformLocation(shaderID, "inputColor");
+	GLint colorLoc3 = glGetUniformLocation(shaderID, "inputColor");
 	
 	glUseProgram(shaderID);
 
@@ -168,9 +221,11 @@ int main()
 	{
 		glfwPollEvents();
 
-		glClearColor(0.95f, 0.70f, 0.10f, 1.0f);
+		//glClearColor(0.95f, 0.70f, 0.10f, 1.0f); //-> cor de fundo amarela
+		glClearColor(1.0f, 1.0f, 1.0f, 1.0f);
 		glClear(GL_COLOR_BUFFER_BIT);
 
+		/* -> Código pra criar o Pac-Man
 		float xPos = 0; float yPos = 0; float radius = 0.9f;
 
 		float prevX = xPos;
@@ -183,7 +238,7 @@ int main()
 
 
 			glBegin(GL_TRIANGLES);
-			glUniform4f(colorLoc, 1.0f, 1.0f, 1.0f, 1.0f);
+			//glUniform4f(colorLoc, 1.0f, 1.0f, 1.0f, 1.0f);
 			glVertex3f(0.0f,0.0f,0.0f);
 			glVertex3f(prevX, prevY, 0.0f);
 			glVertex3f(newX, newY, 0.0f);
@@ -191,7 +246,53 @@ int main()
 
 			prevX = newX;
 			prevY = newY;
+
+			glUniform4f(colorLoc, 0.07f, 0.23f, 0.34f, 1.0f);
 		}
+
+		glBindVertexArray(VAO);
+
+		glUniform4f(colorLoc2, 0.95f, 0.70f, 0.10f, 1.0f);
+
+		glDrawArrays(GL_TRIANGLES, 0, 3);
+		*/
+
+		glBindVertexArray(VAO);
+
+		glUniform4f(colorLoc2, 0.34f, 0.33f, 0.10f, 1.0f);
+		glDrawArrays(GL_TRIANGLES, 3, 6);
+
+		glUniform4f(colorLoc, 0.95f, 0.70f, 0.10f, 1.0f);
+		glDrawArrays(GL_TRIANGLES, 0, 3);
+
+		//-> Rodela da pizza
+		/*
+		float xPos_pizza = 0; float yPos_pizza = 0; float radius_pizza = 0.18f;
+
+		float prevX_pizza = xPos_pizza;
+		float prevY_pizza = yPos_pizza;
+
+		for (int i = 0; i <= steps_pizza; i++) {
+			
+			float newX_pizza = radius_pizza * sin(angle_pizza*i);
+			float newY_pizza = -radius_pizza * cos(angle_pizza*i);
+
+
+			glBegin(GL_TRIANGLES);
+			//glUniform4f(colorLoc, 1.0f, 1.0f, 1.0f, 1.0f);
+			glVertex3f(0.0f,0.0f,0.0f);
+			glVertex3f(prevX_pizza, prevY_pizza, 0.0f);
+			glVertex3f(newX_pizza, newY_pizza, 0.0f);
+			glEnd();
+
+			prevX_pizza = newX_pizza;
+			prevY_pizza = newY_pizza;
+
+			glUniform4f(colorLoc3, 0.78f, 0.0f, 0.0f, 1.0f);
+		}
+		*/
+
+
 
 		glBindVertexArray(0);
 
