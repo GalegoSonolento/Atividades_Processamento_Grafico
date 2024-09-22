@@ -11,7 +11,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "/home/henrique/repos/Atividades_Processamento_Grafico/CMake_branch/Lista_1/build"
+			"value" : "/home/haaghenrique/Documents/repos/Atividades_Processamento_Grafico/CMake_branch/Lista_1/build"
 		},
 		{
 			"name" : "Atividades_processamento_grafico_IS_TOP_LEVEL",
@@ -35,7 +35,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "/home/henrique/repos/Atividades_Processamento_Grafico/CMake_branch/Lista_1"
+			"value" : "/home/haaghenrique/Documents/repos/Atividades_Processamento_Grafico/CMake_branch/Lista_1"
 		},
 		{
 			"name" : "CMAKE_ADDR2LINE",
@@ -91,7 +91,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "/home/henrique/repos/Atividades_Processamento_Grafico/CMake_branch/Lista_1/build"
+			"value" : "/home/haaghenrique/Documents/repos/Atividades_Processamento_Grafico/CMake_branch/Lista_1/build"
 		},
 		{
 			"name" : "CMAKE_CACHE_MAJOR_VERSION",
@@ -115,7 +115,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "22"
+			"value" : "28"
 		},
 		{
 			"name" : "CMAKE_CACHE_PATCH_VERSION",
@@ -127,7 +127,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "1"
+			"value" : "3"
 		},
 		{
 			"name" : "CMAKE_COLOR_MAKEFILE",
@@ -191,11 +191,11 @@
 				},
 				{
 					"name" : "HELPSTRING",
-					"value" : "No help, variable specified on the command line."
+					"value" : "CXX compiler"
 				}
 			],
 			"type" : "FILEPATH",
-			"value" : "/usr/bin/g++"
+			"value" : "/usr/bin/c++"
 		},
 		{
 			"name" : "CMAKE_CXX_COMPILER_AR",
@@ -211,7 +211,7 @@
 				}
 			],
 			"type" : "FILEPATH",
-			"value" : "/usr/bin/gcc-ar-11"
+			"value" : "CMAKE_CXX_COMPILER_AR-NOTFOUND"
 		},
 		{
 			"name" : "CMAKE_CXX_COMPILER_RANLIB",
@@ -227,7 +227,7 @@
 				}
 			],
 			"type" : "FILEPATH",
-			"value" : "/usr/bin/gcc-ranlib-11"
+			"value" : "CMAKE_CXX_COMPILER_RANLIB-NOTFOUND"
 		},
 		{
 			"name" : "CMAKE_CXX_FLAGS",
@@ -323,7 +323,7 @@
 				}
 			],
 			"type" : "FILEPATH",
-			"value" : "/usr/bin/gcc"
+			"value" : "/usr/bin/c89-gcc"
 		},
 		{
 			"name" : "CMAKE_C_COMPILER_AR",
@@ -339,7 +339,7 @@
 				}
 			],
 			"type" : "FILEPATH",
-			"value" : "/usr/bin/gcc-ar-11"
+			"value" : "CMAKE_C_COMPILER_AR-NOTFOUND"
 		},
 		{
 			"name" : "CMAKE_C_COMPILER_RANLIB",
@@ -355,7 +355,7 @@
 				}
 			],
 			"type" : "FILEPATH",
-			"value" : "/usr/bin/gcc-ranlib-11"
+			"value" : "CMAKE_C_COMPILER_RANLIB-NOTFOUND"
 		},
 		{
 			"name" : "CMAKE_C_FLAGS",
@@ -570,6 +570,18 @@
 			"value" : ""
 		},
 		{
+			"name" : "CMAKE_FIND_PACKAGE_REDIRECTS_DIR",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Value Computed by CMake."
+				}
+			],
+			"type" : "STATIC",
+			"value" : "/home/haaghenrique/Documents/repos/Atividades_Processamento_Grafico/CMake_branch/Lista_1/build/CMakeFiles/pkgRedirects"
+		},
+		{
 			"name" : "CMAKE_GENERATOR",
 			"properties" : 
 			[
@@ -627,7 +639,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "/home/henrique/repos/Atividades_Processamento_Grafico/CMake_branch/Lista_1"
+			"value" : "/home/haaghenrique/Documents/repos/Atividades_Processamento_Grafico/CMake_branch/Lista_1"
 		},
 		{
 			"name" : "CMAKE_INSTALL_PREFIX",
@@ -975,7 +987,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "/usr/share/cmake-3.22"
+			"value" : "/usr/share/cmake-3.28"
 		},
 		{
 			"name" : "CMAKE_SHARED_LINKER_FLAGS",
@@ -1186,6 +1198,22 @@
 			"value" : "/usr/bin/strip"
 		},
 		{
+			"name" : "CMAKE_TAPI",
+			"properties" : 
+			[
+				{
+					"name" : "ADVANCED",
+					"value" : "1"
+				},
+				{
+					"name" : "HELPSTRING",
+					"value" : "Path to a program."
+				}
+			],
+			"type" : "FILEPATH",
+			"value" : "CMAKE_TAPI-NOTFOUND"
+		},
+		{
 			"name" : "CMAKE_UNAME",
 			"properties" : 
 			[
@@ -1227,6 +1255,38 @@
 		},
 		{
 			"name" : "OPENGL_EGL_INCLUDE_DIR",
+			"properties" : 
+			[
+				{
+					"name" : "ADVANCED",
+					"value" : "1"
+				},
+				{
+					"name" : "HELPSTRING",
+					"value" : "Path to a file."
+				}
+			],
+			"type" : "PATH",
+			"value" : "/usr/include"
+		},
+		{
+			"name" : "OPENGL_GLES2_INCLUDE_DIR",
+			"properties" : 
+			[
+				{
+					"name" : "ADVANCED",
+					"value" : "1"
+				},
+				{
+					"name" : "HELPSTRING",
+					"value" : "Path to a file."
+				}
+			],
+			"type" : "PATH",
+			"value" : "/usr/include"
+		},
+		{
+			"name" : "OPENGL_GLES3_INCLUDE_DIR",
 			"properties" : 
 			[
 				{
@@ -1290,16 +1350,36 @@
 			"value" : "/usr/lib/x86_64-linux-gnu/libEGL.so"
 		},
 		{
-			"name" : "OPENGL_gl_LIBRARY",
+			"name" : "OPENGL_gles2_LIBRARY",
 			"properties" : 
 			[
+				{
+					"name" : "ADVANCED",
+					"value" : "1"
+				},
 				{
 					"name" : "HELPSTRING",
 					"value" : "Path to a library."
 				}
 			],
 			"type" : "FILEPATH",
-			"value" : "OPENGL_gl_LIBRARY-NOTFOUND"
+			"value" : "/usr/lib/x86_64-linux-gnu/libGLESv2.so"
+		},
+		{
+			"name" : "OPENGL_gles3_LIBRARY",
+			"properties" : 
+			[
+				{
+					"name" : "ADVANCED",
+					"value" : "1"
+				},
+				{
+					"name" : "HELPSTRING",
+					"value" : "Path to a library."
+				}
+			],
+			"type" : "FILEPATH",
+			"value" : "/usr/lib/x86_64-linux-gnu/libGLESv2.so"
 		},
 		{
 			"name" : "OPENGL_glu_LIBRARY",
@@ -1364,6 +1444,18 @@
 			],
 			"type" : "PATH",
 			"value" : "OPENGL_xmesa_INCLUDE_DIR-NOTFOUND"
+		},
+		{
+			"name" : "_CMAKE_LINKER_PUSHPOP_STATE_SUPPORTED",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "linker supports push/pop state"
+				}
+			],
+			"type" : "INTERNAL",
+			"value" : "TRUE"
 		}
 	],
 	"kind" : "cache",

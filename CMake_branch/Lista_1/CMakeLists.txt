@@ -5,7 +5,7 @@ cmake_policy(SET CMP0072 NEW)
 find_package(OpenGL REQUIRED)
 
 add_executable(Atividades_processamento_grafico 
-    src/Exercicio_6.cpp
+    src/Exercicio_7.cpp
     src/glad.h
     src/glad.c
 )

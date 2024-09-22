@@ -1,7 +1,8 @@
+// Código pra criação de espiral
+
 #include <iostream>
 #include <string>
 #include <assert.h>
-//biblioteca da linguagem
 #include <math.h>
 
 using namespace std;
@@ -9,32 +10,16 @@ using namespace std;
 #include "glad.h"
 #include <GLFW/glfw3.h>
 
-//vector
 #include <vector>
 
 const float pi = 3.14159;
-
-/* -> Código pra criar o Pac-man
-//const int steps = 1000;
-// para fazer um círculo propriamente dito, escrevo 1000 triângulos em circunferência, assim ele fica smooth
-
-//const int steps = 8; // para fazer octógono
-
-const int steps = 100;
-const float angle = 3.1415926 * 2.f / steps;
-*/
-
-/*
-//-> Código pra rodela da pizza
-const int steps_pizza = 100;
-const float angle_pizza = 3.1415926 * 2.f / steps_pizza;
-*/
 
 void key_callback(GLFWwindow* window, int key, int scancode, int action, int mode);
 
 int setupShader();
 int setupGeometry();
-int createCircle(int nPoints, float radius = 0.15);
+// Aqui o raio foi substituído por espaçamento (entre as linhas)
+int createSpiral(int nPoints, float spacing = 0.01);
 
 const GLuint WIDTH = 800, HEIGHT = 800;
 
@@ -101,24 +86,11 @@ int setupShader()
 int setupGeometry()
 {
 	GLfloat vertices[] = {
-		/* -> Vértices do Pac-Man
 		//x     y    z
 		//T0
 		0.0,  0.0,  0.0, //v0
 		0.9,  0.9,  0.0, //v1
  		0.9,  -0.9, 0.0  //v2
-		*/
-	    //-> Triângulo da Pizza
-		//T0
-		//x    y    z
-		-0.8,  0.0, 0.0, //v0
-		 0.7,  0.7, 0.0, //v1
-		 0.7, -0.7, 0.0, //v2
-		//T1
-		//x    y    z
-		-0.8,  0.0, 0.0, //v0
-		 0.93, 0.8, 0.0, //v1
-		 0.93,-0.8, 0.0  //v2
 			  
 	};
 
@@ -139,11 +111,11 @@ int setupGeometry()
 	return VAO;
 }
 
-int createCircle(int nPoints, float radius) {
+int createSpiral(int nPoints, float spacing) {
 	
 	vector <GLfloat> vertices;
 
-
+    float angle_multiplier = 0.1;
 	float angle = 0.0;
 	float slice = 2 * pi / (float)nPoints;
 
@@ -153,9 +125,14 @@ int createCircle(int nPoints, float radius) {
 	vertices.push_back(0.0); // Zc
 
 	for (int i = 0; i <= nPoints; i++) {
-		float x = radius * cos(angle);
-		float y = radius * sin(angle);
+        // a cada iteração o ângulo é calculado novamente pra que aumente
+        angle = i * angle_multiplier; // aumente ou diminua o valor dessa multiplicação para espirais mais apertados ou mais abertos
+		float x = spacing * angle * cos(angle); // multiplique espaçamento pelo ângulo e pelo cálculo padrão de circunferência
+		float y = spacing * angle * sin(angle);
 		float z = 0.0;
+        /*
+        Here, as angle increases, the product spacing * angle determines how far the point is from the origin (0,0) at that specific angle. So, the spiral will get progressively larger as you increase the angle.
+        */
 
 		vertices.push_back(x); // x
 		vertices.push_back(y); // y
@@ -209,18 +186,13 @@ int main()
 
 	GLuint shaderID = setupShader();
 
-	GLuint VAO = setupGeometry();
+    int nPoints = 2000;
 
-	//criando o círculo -> Puramente criação do cículo da calabresa da pizza
-	// int nPoints = 2000;
+	GLuint VAO = createSpiral(nPoints);
 
-	// GLuint VAO2 = createCircle(nPoints);
-
-	// int nVertices = nPoints + 2; // inclui o centro e o extra (repetição do primeiro)
+    int nVertices = nPoints + 2;
 
 	GLint colorLoc = glGetUniformLocation(shaderID, "inputColor");
-	GLint colorLoc2 = glGetUniformLocation(shaderID, "inputColor");
-	GLint colorLoc3 = glGetUniformLocation(shaderID, "inputColor");
 	
 	glUseProgram(shaderID);
 
@@ -228,82 +200,13 @@ int main()
 	{
 		glfwPollEvents();
 
-		//glClearColor(0.95f, 0.70f, 0.10f, 1.0f); //-> cor de fundo amarela
 		glClearColor(1.0f, 1.0f, 1.0f, 1.0f);
 		glClear(GL_COLOR_BUFFER_BIT);
 
-		/* -> Código pra criar o Pac-Man
-		float xPos = 0; float yPos = 0; float radius = 0.9f;
-
-		float prevX = xPos;
-		float prevY = yPos;
-
-		for (int i = 0; i <= steps; i++) {
-			
-			float newX = radius * sin(angle*i);
-			float newY = -radius * cos(angle*i);
-
-
-			glBegin(GL_TRIANGLES);
-			//glUniform4f(colorLoc, 1.0f, 1.0f, 1.0f, 1.0f);
-			glVertex3f(0.0f,0.0f,0.0f);
-			glVertex3f(prevX, prevY, 0.0f);
-			glVertex3f(newX, newY, 0.0f);
-			glEnd();
-
-			prevX = newX;
-			prevY = newY;
-
-			glUniform4f(colorLoc, 0.07f, 0.23f, 0.34f, 1.0f);
-		}
-
 		glBindVertexArray(VAO);
 
-		glUniform4f(colorLoc2, 0.95f, 0.70f, 0.10f, 1.0f);
-
-		glDrawArrays(GL_TRIANGLES, 0, 3);
-		*/
-
-		glBindVertexArray(VAO);
-
-		//-> Pedaços da pizza
-		glUniform4f(colorLoc2, 0.34f, 0.33f, 0.10f, 1.0f);
-		glDrawArrays(GL_TRIANGLES, 3, 6);
-
-		// glUniform4f(colorLoc, 0.95f, 0.70f, 0.10f, 1.0f);
-		// glDrawArrays(GL_TRIANGLES, 0, 3);
-
-		//-> Rodela da pizza
-		/*
-		float xPos_pizza = 0; float yPos_pizza = 0; float radius_pizza = 0.18f;
-
-		float prevX_pizza = xPos_pizza;
-		float prevY_pizza = yPos_pizza;
-
-		for (int i = 0; i <= steps_pizza; i++) {
-			
-			float newX_pizza = radius_pizza * sin(angle_pizza*i);
-			float newY_pizza = -radius_pizza * cos(angle_pizza*i);
-
-
-			glBegin(GL_TRIANGLES);
-			//glUniform4f(colorLoc, 1.0f, 1.0f, 1.0f, 1.0f);
-			glVertex3f(0.0f,0.0f,0.0f);
-			glVertex3f(prevX_pizza, prevY_pizza, 0.0f);
-			glVertex3f(newX_pizza, newY_pizza, 0.0f);
-			glEnd();
-
-			prevX_pizza = newX_pizza;
-			prevY_pizza = newY_pizza;
-
-			glUniform4f(colorLoc3, 0.78f, 0.0f, 0.0f, 1.0f);
-		}
-		*/
-
-		// calabresa da pizza
-		// glBindVertexArray(VAO2);
-		// glUniform4f(colorLoc3, 0.78f, 0.0f, 0.0f, 1.0f);
-		// glDrawArrays(GL_TRIANGLE_FAN, 0, nVertices);
+        glUniform4f(colorLoc, 0.78f, 0.0f, 0.0f, 1.0f);
+        glDrawArrays(GL_LINE_STRIP, 0, nVertices / 2);
 
 		glBindVertexArray(0);
 

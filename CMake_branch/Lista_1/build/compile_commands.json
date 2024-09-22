@@ -1,12 +1,14 @@
 [
 {
-  "directory": "/home/henrique/repos/Atividades_Processamento_Grafico/CMake_branch/Lista_1/build",
-  "command": "/usr/bin/g++   -g -o CMakeFiles/Atividades_processamento_grafico.dir/src/Exercicio_6.cpp.o -c /home/henrique/repos/Atividades_Processamento_Grafico/CMake_branch/Lista_1/src/Exercicio_6.cpp",
-  "file": "/home/henrique/repos/Atividades_Processamento_Grafico/CMake_branch/Lista_1/src/Exercicio_6.cpp"
+  "directory": "/home/haaghenrique/Documents/repos/Atividades_Processamento_Grafico/CMake_branch/Lista_1/build",
+  "command": "/usr/bin/c++   -g -o CMakeFiles/Atividades_processamento_grafico.dir/src/Exercicio_7.cpp.o -c /home/haaghenrique/Documents/repos/Atividades_Processamento_Grafico/CMake_branch/Lista_1/src/Exercicio_7.cpp",
+  "file": "/home/haaghenrique/Documents/repos/Atividades_Processamento_Grafico/CMake_branch/Lista_1/src/Exercicio_7.cpp",
+  "output": "CMakeFiles/Atividades_processamento_grafico.dir/src/Exercicio_7.cpp.o"
 },
 {
-  "directory": "/home/henrique/repos/Atividades_Processamento_Grafico/CMake_branch/Lista_1/build",
-  "command": "/usr/bin/gcc   -g -o CMakeFiles/Atividades_processamento_grafico.dir/src/glad.c.o -c /home/henrique/repos/Atividades_Processamento_Grafico/CMake_branch/Lista_1/src/glad.c",
-  "file": "/home/henrique/repos/Atividades_Processamento_Grafico/CMake_branch/Lista_1/src/glad.c"
+  "directory": "/home/haaghenrique/Documents/repos/Atividades_Processamento_Grafico/CMake_branch/Lista_1/build",
+  "command": "/usr/bin/c89-gcc   -g -o CMakeFiles/Atividades_processamento_grafico.dir/src/glad.c.o -c /home/haaghenrique/Documents/repos/Atividades_Processamento_Grafico/CMake_branch/Lista_1/src/glad.c",
+  "file": "/home/haaghenrique/Documents/repos/Atividades_Processamento_Grafico/CMake_branch/Lista_1/src/glad.c",
+  "output": "CMakeFiles/Atividades_processamento_grafico.dir/src/glad.c.o"
 }
 ]
