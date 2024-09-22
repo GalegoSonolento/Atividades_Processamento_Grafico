@@ -131,7 +131,7 @@ int main()
 {
 	glfwInit();
 
-	GLFWwindow* window = glfwCreateWindow(WIDTH, HEIGHT, "Ola Triangulo! -- Henrique", NULL, NULL);
+	GLFWwindow* window = glfwCreateWindow(WIDTH, HEIGHT, "Exercicio 5 -- Henrique", NULL, NULL);
 	glfwMakeContextCurrent(window);
 
 	glfwSetKeyCallback(window, key_callback);

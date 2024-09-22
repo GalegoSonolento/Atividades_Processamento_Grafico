@@ -1,5 +1,3 @@
-// Código pra criação de espiral
-
 #include <iostream>
 #include <string>
 #include <assert.h>
@@ -9,7 +7,6 @@ using namespace std;
 
 #include "glad.h"
 #include <GLFW/glfw3.h>
-
 #include <vector>
 
 const float pi = 3.14159;
@@ -18,8 +15,7 @@ void key_callback(GLFWwindow* window, int key, int scancode, int action, int mod
 
 int setupShader();
 int setupGeometry();
-// Aqui o raio foi substituído por espaçamento (entre as linhas)
-int createSpiral(int nPoints, float spacing = 0.01);
+int createCircle(int nPoints, GLfloat radius = .5f);
 
 const GLuint WIDTH = 800, HEIGHT = 800;
 
@@ -86,11 +82,17 @@ int setupShader()
 int setupGeometry()
 {
 	GLfloat vertices[] = {
-		//x     y    z
+	    //-> Triângulo da Pizza
 		//T0
-		0.0,  0.0,  0.0, //v0
-		0.9,  0.9,  0.0, //v1
- 		0.9,  -0.9, 0.0  //v2
+		//x    y    z
+		-0.8,  0.0, 0.0, //v0
+		 0.7,  0.7, 0.0, //v1
+		 0.7, -0.7, 0.0, //v2
+		//T1
+		//x    y    z
+		-0.8,  0.0, 0.0, //v0
+		 0.93, 0.8, 0.0, //v1
+		 0.93,-0.8, 0.0  //v2
 			  
 	};
 
@@ -111,34 +113,31 @@ int setupGeometry()
 	return VAO;
 }
 
-int createSpiral(int nPoints, float spacing) {
+int createCircle(int nPoints, GLfloat radius) {
 	
 	vector <GLfloat> vertices;
 
-    float angle_multiplier = 0.1;
+
 	float angle = 0.0;
-	float slice = 2 * pi / (float)nPoints;
+	GLfloat slice = 2 * pi / (float)nPoints;
 
 	//adicionar ponto de origem (0, 0, 0) - centro do circulo
-	vertices.push_back(0.0); // Xc
-	vertices.push_back(0.0); // Yc
-	vertices.push_back(0.0); // Zc
+    GLfloat x=-.3f; GLfloat y=-.3f; 
+
+	vertices.push_back(x); // Xc
+	vertices.push_back(y); // Yc
+	// vertices.push_back( 0.0); // Zc
 
 	for (int i = 0; i <= nPoints; i++) {
-        // a cada iteração o ângulo é calculado novamente pra que aumente
-        angle = i * angle_multiplier; // aumente ou diminua o valor dessa multiplicação para espirais mais apertados ou mais abertos
-		float x = spacing * angle * cos(angle); // multiplique espaçamento pelo ângulo e pelo cálculo padrão de circunferência
-		float y = spacing * angle * sin(angle);
-		float z = 0.0;
-        /*
-        Here, as angle increases, the product spacing * angle determines how far the point is from the origin (0,0) at that specific angle. So, the spiral will get progressively larger as you increase the angle.
-        */
+		x + (radius * cos(i * slice));
+		y + (radius * sin(i * slice));
+		//float z = 0.0;
 
 		vertices.push_back(x); // x
 		vertices.push_back(y); // y
-		vertices.push_back(z); // z
+		//vertices.push_back(z); // z
 
-		angle = angle + slice;
+		//angle = angle + slice;
 	}
 
 	//configuração dos buffers VBO e VAO
@@ -164,7 +163,7 @@ int main()
 {
 	glfwInit();
 
-	GLFWwindow* window = glfwCreateWindow(WIDTH, HEIGHT, "Exercicio 7 -- Henrique", NULL, NULL);
+	GLFWwindow* window = glfwCreateWindow(WIDTH, HEIGHT, "Exercicio 9 - Pizza! -- Henrique", NULL, NULL);
 	glfwMakeContextCurrent(window);
 
 	glfwSetKeyCallback(window, key_callback);
@@ -186,13 +185,18 @@ int main()
 
 	GLuint shaderID = setupShader();
 
-    int nPoints = 2000;
+	GLuint VAO = setupGeometry();
 
-	GLuint VAO = createSpiral(nPoints);
+	//criando o círculo -> Puramente criação do cículo da calabresa da pizza
+	int nPoints = 2000;
 
-    int nVertices = nPoints + 2;
+	GLuint VAO2 = createCircle(nPoints);
+
+	int nVertices = nPoints + 2; // inclui o centro e o extra (repetição do primeiro)
 
 	GLint colorLoc = glGetUniformLocation(shaderID, "inputColor");
+	GLint colorLoc2 = glGetUniformLocation(shaderID, "inputColor");
+	GLint colorLoc3 = glGetUniformLocation(shaderID, "inputColor");
 	
 	glUseProgram(shaderID);
 
@@ -205,8 +209,43 @@ int main()
 
 		glBindVertexArray(VAO);
 
-        glUniform4f(colorLoc, 0.78f, 0.0f, 0.0f, 1.0f);
-        glDrawArrays(GL_LINE_STRIP, 0, nVertices / 2);
+		//-> Pedaços da pizza
+		glUniform4f(colorLoc2, 0.34f, 0.33f, 0.10f, 1.0f);
+		glDrawArrays(GL_TRIANGLES, 3, 6);
+
+		glUniform4f(colorLoc, 0.95f, 0.70f, 0.10f, 1.0f);
+		glDrawArrays(GL_TRIANGLES, 0, 3);
+
+		//-> Rodela da pizza
+		GLfloat x = -.3f; GLfloat y = .0f; GLfloat radius = .2f;
+        int nVertices = 40;
+
+        GLfloat twicePi = 2.0 * pi;
+
+        glUniform4f(colorLoc3, 0.78f, 0.0f, 0.0f, 1.0f);
+        glBegin(GL_TRIANGLE_FAN);
+            glVertex2f(x, y);
+            for (int i = 0; i <= nVertices; i++) {
+                glVertex2f(
+                    x + (radius * cos(i * twicePi / nVertices)),
+                    y + (radius * sin(i * twicePi / nVertices))
+                );
+            }
+        glEnd();
+
+        x = .3f; y = .2f; radius = .25f;
+        nVertices = 40;
+
+        glUniform4f(colorLoc3, 0.78f, 0.0f, 0.0f, 1.0f);
+        glBegin(GL_TRIANGLE_FAN);
+            glVertex2f(x, y);
+            for (int i = 0; i <= nVertices; i++) {
+                glVertex2f(
+                    x + (radius * cos(i * twicePi / nVertices)),
+                    y + (radius * sin(i * twicePi / nVertices))
+                );
+            }
+        glEnd();
 
 		glBindVertexArray(0);
 
@@ -216,4 +255,3 @@ int main()
 	glfwTerminate();
 	return 0;
 }
-

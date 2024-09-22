@@ -129,29 +129,29 @@ Atividades_processamento_grafico/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Atividades_processamento_grafico.dir/build.make CMakeFiles/Atividades_processamento_grafico.dir/build
 .PHONY : Atividades_processamento_grafico/fast
 
-src/Exercicio_7.o: src/Exercicio_7.cpp.o
-.PHONY : src/Exercicio_7.o
+src/Exercicio_9.o: src/Exercicio_9.cpp.o
+.PHONY : src/Exercicio_9.o
 
 # target to build an object file
-src/Exercicio_7.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Atividades_processamento_grafico.dir/build.make CMakeFiles/Atividades_processamento_grafico.dir/src/Exercicio_7.cpp.o
-.PHONY : src/Exercicio_7.cpp.o
+src/Exercicio_9.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Atividades_processamento_grafico.dir/build.make CMakeFiles/Atividades_processamento_grafico.dir/src/Exercicio_9.cpp.o
+.PHONY : src/Exercicio_9.cpp.o
 
-src/Exercicio_7.i: src/Exercicio_7.cpp.i
-.PHONY : src/Exercicio_7.i
+src/Exercicio_9.i: src/Exercicio_9.cpp.i
+.PHONY : src/Exercicio_9.i
 
 # target to preprocess a source file
-src/Exercicio_7.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Atividades_processamento_grafico.dir/build.make CMakeFiles/Atividades_processamento_grafico.dir/src/Exercicio_7.cpp.i
-.PHONY : src/Exercicio_7.cpp.i
+src/Exercicio_9.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Atividades_processamento_grafico.dir/build.make CMakeFiles/Atividades_processamento_grafico.dir/src/Exercicio_9.cpp.i
+.PHONY : src/Exercicio_9.cpp.i
 
-src/Exercicio_7.s: src/Exercicio_7.cpp.s
-.PHONY : src/Exercicio_7.s
+src/Exercicio_9.s: src/Exercicio_9.cpp.s
+.PHONY : src/Exercicio_9.s
 
 # target to generate assembly for a file
-src/Exercicio_7.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Atividades_processamento_grafico.dir/build.make CMakeFiles/Atividades_processamento_grafico.dir/src/Exercicio_7.cpp.s
-.PHONY : src/Exercicio_7.cpp.s
+src/Exercicio_9.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Atividades_processamento_grafico.dir/build.make CMakeFiles/Atividades_processamento_grafico.dir/src/Exercicio_9.cpp.s
+.PHONY : src/Exercicio_9.cpp.s
 
 src/glad.o: src/glad.c.o
 .PHONY : src/glad.o
@@ -186,9 +186,9 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... Atividades_processamento_grafico"
-	@echo "... src/Exercicio_7.o"
-	@echo "... src/Exercicio_7.i"
-	@echo "... src/Exercicio_7.s"
+	@echo "... src/Exercicio_9.o"
+	@echo "... src/Exercicio_9.i"
+	@echo "... src/Exercicio_9.s"
 	@echo "... src/glad.o"
 	@echo "... src/glad.i"
 	@echo "... src/glad.s"

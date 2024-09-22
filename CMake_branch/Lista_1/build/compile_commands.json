@@ -1,9 +1,9 @@
 [
 {
   "directory": "/home/haaghenrique/Documents/repos/Atividades_Processamento_Grafico/CMake_branch/Lista_1/build",
-  "command": "/usr/bin/c++   -g -o CMakeFiles/Atividades_processamento_grafico.dir/src/Exercicio_7.cpp.o -c /home/haaghenrique/Documents/repos/Atividades_Processamento_Grafico/CMake_branch/Lista_1/src/Exercicio_7.cpp",
-  "file": "/home/haaghenrique/Documents/repos/Atividades_Processamento_Grafico/CMake_branch/Lista_1/src/Exercicio_7.cpp",
-  "output": "CMakeFiles/Atividades_processamento_grafico.dir/src/Exercicio_7.cpp.o"
+  "command": "/usr/bin/c++   -g -o CMakeFiles/Atividades_processamento_grafico.dir/src/Exercicio_9.cpp.o -c /home/haaghenrique/Documents/repos/Atividades_Processamento_Grafico/CMake_branch/Lista_1/src/Exercicio_9.cpp",
+  "file": "/home/haaghenrique/Documents/repos/Atividades_Processamento_Grafico/CMake_branch/Lista_1/src/Exercicio_9.cpp",
+  "output": "CMakeFiles/Atividades_processamento_grafico.dir/src/Exercicio_9.cpp.o"
 },
 {
   "directory": "/home/haaghenrique/Documents/repos/Atividades_Processamento_Grafico/CMake_branch/Lista_1/build",

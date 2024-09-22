@@ -1,8 +1,8 @@
 file(REMOVE_RECURSE
   "Atividades_processamento_grafico"
   "Atividades_processamento_grafico.pdb"
-  "CMakeFiles/Atividades_processamento_grafico.dir/src/Exercicio_7.cpp.o"
-  "CMakeFiles/Atividades_processamento_grafico.dir/src/Exercicio_7.cpp.o.d"
+  "CMakeFiles/Atividades_processamento_grafico.dir/src/Exercicio_9.cpp.o"
+  "CMakeFiles/Atividades_processamento_grafico.dir/src/Exercicio_9.cpp.o.d"
   "CMakeFiles/Atividades_processamento_grafico.dir/src/glad.c.o"
   "CMakeFiles/Atividades_processamento_grafico.dir/src/glad.c.o.d"
 )

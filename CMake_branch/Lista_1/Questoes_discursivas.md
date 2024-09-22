@@ -16,4 +16,45 @@
     c. Apenas como pontos
     d. Com as 3 formas de desenho juntas
 
-6. 
+8. 
+a. A configuração desses buffers, neste caso, não seria tão complexa ou diferente. Aqui está uma possibilidade. Inclusões em funções estão omitidas para objetividade.
+
+### VBO
+```C++
+float vertices[] = {
+     0.5f,  0.8f, 0.0f,
+    -0.8f, -0.8f, 0.0f,
+     0.7f, -0.4f, 0.0f
+};  
+
+unsigned int VBO;
+glGenBuffers(1, &VBO);  
+
+glBindBuffer(GL_ARRAY_BUFFER, VBO); 
+
+glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
+```
+### VAO
+```C++
+unsigned int VAO;
+glGenVertexArrays(1, &VAO);
+
+// Código de inicialização
+glBindVertexArray(VAO);
+// Copiar todos os vértices do array em um buffer
+glBindBuffer(GL_ARRAY_BUFFER, VBO);
+glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
+// atribuir os pontos para os vértices a fim de gerar um desenho
+glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);
+glEnableVertexAttribArray(0);  
+
+//[...]
+
+// Desenhando o objeto
+glUseProgram(shaderProgram);
+glBindVertexArray(VAO);
+someOpenGLFunctionThatDrawsOurTriangle();  
+```
+
+### EBO
+Nesse caso, um EBO não é necessário, visto que sua usabilidade (retirar repetições de vértices desnecessárias) não precisa ser aplicada nesse cenário.
