@@ -1,0 +1,12 @@
+[
+{
+  "directory": "/home/henrique/repos/Atividades_Processamento_Grafico/CMake_branch/Lista_2/build",
+  "command": "/usr/bin/g++   -g -o CMakeFiles/Atividades_processamento_grafico.dir/src/lista_2_ex_1_e_2.cpp.o -c /home/henrique/repos/Atividades_Processamento_Grafico/CMake_branch/Lista_2/src/lista_2_ex_1_e_2.cpp",
+  "file": "/home/henrique/repos/Atividades_Processamento_Grafico/CMake_branch/Lista_2/src/lista_2_ex_1_e_2.cpp"
+},
+{
+  "directory": "/home/henrique/repos/Atividades_Processamento_Grafico/CMake_branch/Lista_2/build",
+  "command": "/usr/bin/gcc   -g -o CMakeFiles/Atividades_processamento_grafico.dir/src/glad.c.o -c /home/henrique/repos/Atividades_Processamento_Grafico/CMake_branch/Lista_2/src/glad.c",
+  "file": "/home/henrique/repos/Atividades_Processamento_Grafico/CMake_branch/Lista_2/src/glad.c"
+}
+]
