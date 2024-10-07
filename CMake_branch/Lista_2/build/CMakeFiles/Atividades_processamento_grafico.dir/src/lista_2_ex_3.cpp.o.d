@@ -1,5 +1,5 @@
-CMakeFiles/Atividades_processamento_grafico.dir/src/lista_2_ex_1_e_2.cpp.o: \
- /home/haaghenrique/Documents/repos/Atividades_Processamento_Grafico/CMake_branch/Lista_2/src/lista_2_ex_1_e_2.cpp \
+CMakeFiles/Atividades_processamento_grafico.dir/src/lista_2_ex_3.cpp.o: \
+ /home/haaghenrique/Documents/repos/Atividades_Processamento_Grafico/CMake_branch/Lista_2/src/lista_2_ex_3.cpp \
  /usr/include/stdc-predef.h /usr/include/c++/13/iostream \
  /usr/include/c++/13/bits/requires_hosted.h \
  /usr/include/x86_64-linux-gnu/c++/13/bits/c++config.h \
