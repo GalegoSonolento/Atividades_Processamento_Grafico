@@ -39,7 +39,7 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "Atividades_processamento_grafico::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-Atividades_processamento_grafico-Debug-ada6237d914381230bb1.json",
+					"jsonFile" : "target-Atividades_processamento_grafico-Debug-0ee9fb7951cd3ab1ee68.json",
 					"name" : "Atividades_processamento_grafico",
 					"projectIndex" : 0
 				}
@@ -49,12 +49,12 @@
 	"kind" : "codemodel",
 	"paths" : 
 	{
-		"build" : "/home/haaghenrique/Documents/repos/Atividades_Processamento_Grafico/CMake_branch/Lista_2/build",
-		"source" : "/home/haaghenrique/Documents/repos/Atividades_Processamento_Grafico/CMake_branch/Lista_2"
+		"build" : "/home/henrique/repos/Atividades_Processamento_Grafico/CMake_branch/Lista_2/build",
+		"source" : "/home/henrique/repos/Atividades_Processamento_Grafico/CMake_branch/Lista_2"
 	},
 	"version" : 
 	{
 		"major" : 2,
-		"minor" : 6
+		"minor" : 3
 	}
 }

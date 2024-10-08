@@ -12,4 +12,12 @@ Pelo fato dos pontos serem refletidos ao primeiro quadrante, temos um triângulo
 
 <img src="imgs/triangulo_invertido_no_quadrante.png">
 
-4. 
+4. A modificação de viewport necessitou mexer na declaração "glViewport" propriamente dita. Já que a janela precisava de sua origem deslocada.
+A nova linha ficou da seguinte forma: "glViewport(width / 2, height / 2, width / 2, height / 2);"
+
+<img src="imgs/triângulo_no_primeiro_quadrante.png">
+
+5. A modificação da viewport do exercício anterior foi desfeita em favor de usar as tranformações do openGL para a disposição dos triângulos entre os quadrantes.
+Com o use de "translates", é possível desenhar os mesmos vértices em pontos diferentes da tela.
+
+<img src="imgs/1_triangulo_por_quadrante.png">

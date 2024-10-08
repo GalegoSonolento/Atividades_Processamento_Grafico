@@ -8,7 +8,8 @@ add_executable(Atividades_processamento_grafico
     #src/lista_2_ex_1.cpp
     #src/lista_2_ex_2.cpp
     #src/lista_2_ex_3.cpp
-    src/lista_2_ex_4.cpp
+    #src/lista_2_ex_4.cpp
+    src/lista_2_ex_5.cpp
     src/glad.h
     src/glad.c
 )
