@@ -1,0 +1,12 @@
+[
+{
+  "directory": "/home/henrique/repos/Atividades_Processamento_Grafico/CMake_branch/Dino_game/build",
+  "command": "/usr/bin/g++   -g -o CMakeFiles/Atividades_processamento_grafico.dir/src/Source.cpp.o -c /home/henrique/repos/Atividades_Processamento_Grafico/CMake_branch/Dino_game/src/Source.cpp",
+  "file": "/home/henrique/repos/Atividades_Processamento_Grafico/CMake_branch/Dino_game/src/Source.cpp"
+},
+{
+  "directory": "/home/henrique/repos/Atividades_Processamento_Grafico/CMake_branch/Dino_game/build",
+  "command": "/usr/bin/gcc   -g -o CMakeFiles/Atividades_processamento_grafico.dir/src/glad.c.o -c /home/henrique/repos/Atividades_Processamento_Grafico/CMake_branch/Dino_game/src/glad.c",
+  "file": "/home/henrique/repos/Atividades_Processamento_Grafico/CMake_branch/Dino_game/src/glad.c"
+}
+]
