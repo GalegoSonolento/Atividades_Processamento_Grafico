@@ -38,7 +38,7 @@ bool isJumpKeyHeld = false;
 float jumpVelocity = 0.0f;
 float jumpStrength = 5.0f; // Força base do pulo
 float gravity = -9.8f;
-float groundLevel = 200.0f; // Posição y no solo
+float groundLevel = 135.0f; // Posição y no solo
 float jumpHoldTime = 0.0f; // Tempo que a tecla de pulo foi pressionada
 float maxJumpHoldTime = 0.5f; // Tempo máximo que a tecla pode ser segurada para aumentar o pulo
 
@@ -59,6 +59,7 @@ struct Sprite
 	vec2 d;
 	float FPS;
 	float lastTime;
+	float animationLastTime;
 
 	// Função de inicialização
 	void setupSprite(int texID, vec3 position, vec3 dimensions, int nFrames, int nAnimations);
@@ -111,8 +112,8 @@ Sprite background1, background2, background3, background4, character, obstacle, 
 int main()
 {
     // Inicialização da GLFW, GLAD e outros componentes da OpenGL (já existentes no seu código)
-    glfwInit();
-    GLFWwindow* window = glfwCreateWindow(WIDTH, HEIGHT, "Hello Sprites!", nullptr, nullptr);
+	glfwInit();
+    GLFWwindow* window = glfwCreateWindow(WIDTH, HEIGHT, "Hello game", nullptr, nullptr);
     glfwMakeContextCurrent(window);
     glfwSetKeyCallback(window, key_callback);
     if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress))
@@ -127,7 +128,7 @@ int main()
 
     // Inicializando dois sprites de fundo
     int imgWidth, imgHeight;
-    int texID = loadTexture("../Texturas/backgrounds/PNG/Battleground3/Bright/Battleground3.png", imgWidth, imgHeight);
+    int texID = loadTexture("../Texturas/backgrounds/PNG/Battleground3/Bright/endless.jpg", imgWidth, imgHeight);
     float backgroundWidth = imgWidth * 0.5f;
 
     // Background 1
@@ -142,16 +143,20 @@ int main()
 	//background4 (mais à direita do 3 ainda)
 	background4.setupSprite(texID, vec3(400.0 + (3 * backgroundWidth), 300.0, 0.0), vec3(backgroundWidth, imgHeight * 0.5f, 1.0), 1, 1);
 
-    // Inicializando a sprite do personagem
-    texID = loadTexture("../Texturas/characters/PNG/1 Pink_Monster/Pink_Monster_Walk_6.png", imgWidth, imgHeight);
-    character.setupSprite(texID, vec3(50.0, 200.0, 0.0), vec3(imgWidth / 6.0 * 2.0, imgHeight * 2.0, 1.0), 6, 1);
+    texID = loadTexture("../Texturas/characters/PNG/1 Pink_Monster/Rock1.png", imgWidth, imgHeight);
 
-    texID = loadTexture("../Texturas/characters/PNG/1 Pink_Monster/Pink_Monster_Walk_6.png", imgWidth, imgHeight);
+    obstacle.setupSprite(texID, vec3(400.0, 135.0, 0.0), vec3(backgroundWidth / 16.0, backgroundWidth / 16.0, 1.0), 1, 1);
+	obstacle3.setupSprite(texID, vec3(400.0 + 2 * backgroundWidth/2, 135.0, 0.0), vec3(backgroundWidth / 16.0, backgroundWidth / 16.0, 1.0), 1, 1);
 
-    obstacle.setupSprite(texID, vec3(350.0, 200.0, 0.0), vec3(imgWidth / 6.0 * 2.0, imgHeight * 2.0, 1.0), 6, 1);
-    obstacle2.setupSprite(texID, vec3(400.0 + backgroundWidth/2, 200.0, 0.0), vec3(imgWidth / 6.0 * 2.0, imgHeight * 2.0, 1.0), 6, 1);
-    obstacle3.setupSprite(texID, vec3(400.0 + 2 * backgroundWidth/2, 200.0, 0.0), vec3(imgWidth / 6.0 * 2.0, imgHeight * 2.0, 1.0), 6, 1);
-    obstacle4.setupSprite(texID, vec3(400.0 + 3 * backgroundWidth/2, 200.0, 0.0), vec3(imgWidth / 6.0 * 2.0, imgHeight * 2.0, 1.0), 6, 1);
+	texID = loadTexture("../Texturas/characters/PNG/1 Pink_Monster/Rock2.png", imgWidth, imgHeight);
+
+    obstacle2.setupSprite(texID, vec3(400.0 + backgroundWidth/2, 135.0, 0.0), vec3(backgroundWidth / 16.0, backgroundWidth / 16.0, 1.0), 1, 1);
+    obstacle4.setupSprite(texID, vec3(400.0 + 3 * backgroundWidth/2, 135.0, 0.0), vec3(backgroundWidth / 16.0, backgroundWidth / 16.0, 1.0), 1, 1);
+    
+
+	// Inicializando a sprite do personagem
+    texID = loadTexture("../Texturas/characters/PNG/my_guy_run-removebg-preview.png", imgWidth, imgHeight);
+    character.setupSprite(texID, vec3(50.0, 135.0, 0.0), vec3(imgWidth / 6 * 2.0, imgHeight * 2, 1.0), 7, 1);
 
     glUseProgram(shaderID);
     mat4 projection = ortho(0.0f, 800.0f, 0.0f, 600.0f, -1.0f, 1.0f);
@@ -168,6 +173,9 @@ int main()
         glfwPollEvents();
         glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+
+		vec2 offsetTex = vec2(0.0, 0.0);
+		glUniform2f(glGetUniformLocation(shaderID, "offsetTex"), offsetTex.s, offsetTex.t);
 
         // Calcula o tempo delta entre frames
         float now = glfwGetTime();
@@ -205,6 +213,17 @@ int main()
 		drawSprite(obstacle2, shaderID);
 		drawSprite(obstacle3, shaderID);
 		drawSprite(obstacle4, shaderID);
+
+		float agora = glfwGetTime();
+		float dt = agora - character.animationLastTime;
+		if (dt >= 1.0 / character.FPS)
+		{
+			character.iFrame = (character.iFrame + 1) % character.nFrames; // incrementando ciclicamente o indice do Frame
+			character.animationLastTime = agora;
+		}	
+		offsetTex.s = character.iFrame * character.d.s;
+		offsetTex.t = 0.0;
+		glUniform2f(glGetUniformLocation(shaderID, "offsetTex"), offsetTex.s, offsetTex.t);
 		drawSprite(character, shaderID);
 
         // Reposicionamento do fundo para efeito de loop
@@ -242,15 +261,6 @@ int main()
             obstacle4.position.x = obstacle3.position.x + backgroundWidth / 1.5;
         }
 
-        // Atualização da animação do personagem
-        if (deltaTime >= 1.0 / character.FPS) {
-            character.iFrame = (character.iFrame + 1) % character.nFrames;
-            character.lastTime = now;
-        }
-        vec2 offsetTex = vec2(character.iFrame * character.d.s, 0.0);
-        glUniform2f(glGetUniformLocation(shaderID, "offsetTex"), offsetTex.s, offsetTex.t);
-        drawSprite(character, shaderID);
-
         glfwSwapBuffers(window);
     }
 
@@ -259,15 +269,15 @@ int main()
 }
 
 bool checkCollision(Sprite& character, Sprite& obstacle) {
-    float charLeft = character.position.x - character.dimensions.x / 2.0f;
-    float charRight = character.position.x + character.dimensions.x / 2.0f;
-    float charBottom = character.position.y - character.dimensions.y / 2.0f;
-    float charTop = character.position.y + character.dimensions.y / 2.0f;
+    float charLeft = character.position.x - character.dimensions.x / 4.0f;
+    float charRight = character.position.x + character.dimensions.x / 4.0f;
+    float charBottom = character.position.y - character.dimensions.y / 4.0f;
+    float charTop = character.position.y + character.dimensions.y / 4.0f;
 
-    float obsLeft = obstacle.position.x - obstacle.dimensions.x / 2.0f;
-    float obsRight = obstacle.position.x + obstacle.dimensions.x / 2.0f;
-    float obsBottom = obstacle.position.y - obstacle.dimensions.y / 2.0f;
-    float obsTop = obstacle.position.y + obstacle.dimensions.y / 2.0f;
+    float obsLeft = obstacle.position.x - obstacle.dimensions.x / 4.0f;
+    float obsRight = obstacle.position.x + obstacle.dimensions.x / 4.0f;
+    float obsBottom = obstacle.position.y - obstacle.dimensions.y / 4.0f;
+    float obsTop = obstacle.position.y + obstacle.dimensions.y / 4.0f;
 
     // Verifica se os retângulos estão sobrepostos
     if (charRight >= obsLeft && charLeft <= obsRight &&

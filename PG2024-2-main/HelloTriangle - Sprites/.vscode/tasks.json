@@ -12,6 +12,7 @@
                 "-I${workspaceFolder}/../Dependencies/glfw-3.4.bin.WIN64/include", //GLFW
                 "-I${workspaceFolder}/../Dependencies/glm", //GLM
                 "-I${workspaceFolder}/../Dependencies/stb_image", //STB_IMAGE
+                "-I${workspaceFolder}/../Dependencies/irrKlang-64bit-1.6.0/include",
                 "${file}",
                 // Aqui você inclui o caminho para os outros arquivos .c ou .cpp
                 "${workspaceFolder}/glad.c",  //GLAD
