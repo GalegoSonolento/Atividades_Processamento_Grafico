@@ -1,3 +1,8 @@
+Universidade do Vale do Rio dos Sinos - Unisinos
+2024/2 - Processamento Gráfico: Fundamentos
+15/OUtubro/2024
+Guilherme Rockenbach e Henrique Haag
+
 Rode apenas essa pasta para o game funcionar, do contrário (no VSCode pelo menos) o programa não encontra nenhuma das pastas necessárias.
 
 Source.cpp é o que funciona - sem áudio ou muita firula, mudei só alguns sprites e foi isso
