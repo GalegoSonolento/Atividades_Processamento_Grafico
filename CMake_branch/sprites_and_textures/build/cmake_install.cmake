@@ -1,4 +1,4 @@
-# Install script for directory: /home/henrique/repos/Atividades_Processamento_Grafico/CMake_branch/sprites_and_textures
+# Install script for directory: /home/haaghenrique/Documents/repos/Atividades_Processamento_Grafico/CMake_branch/sprites_and_textures
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -50,5 +50,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/henrique/repos/Atividades_Processamento_Grafico/CMake_branch/sprites_and_textures/build/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/haaghenrique/Documents/repos/Atividades_Processamento_Grafico/CMake_branch/sprites_and_textures/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

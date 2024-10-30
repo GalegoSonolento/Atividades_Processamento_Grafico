@@ -1,17 +1,20 @@
 [
 {
-  "directory": "/home/henrique/repos/Atividades_Processamento_Grafico/CMake_branch/sprites_and_textures/build",
-  "command": "/usr/bin/g++   -g -o CMakeFiles/Atividades_processamento_grafico.dir/src/stb_image/stb_image.cpp.o -c /home/henrique/repos/Atividades_Processamento_Grafico/CMake_branch/sprites_and_textures/src/stb_image/stb_image.cpp",
-  "file": "/home/henrique/repos/Atividades_Processamento_Grafico/CMake_branch/sprites_and_textures/src/stb_image/stb_image.cpp"
+  "directory": "/home/haaghenrique/Documents/repos/Atividades_Processamento_Grafico/CMake_branch/sprites_and_textures/build",
+  "command": "/usr/bin/c++   -g -o CMakeFiles/Atividades_processamento_grafico.dir/src/stb_image/stb_image.cpp.o -c /home/haaghenrique/Documents/repos/Atividades_Processamento_Grafico/CMake_branch/sprites_and_textures/src/stb_image/stb_image.cpp",
+  "file": "/home/haaghenrique/Documents/repos/Atividades_Processamento_Grafico/CMake_branch/sprites_and_textures/src/stb_image/stb_image.cpp",
+  "output": "CMakeFiles/Atividades_processamento_grafico.dir/src/stb_image/stb_image.cpp.o"
 },
 {
-  "directory": "/home/henrique/repos/Atividades_Processamento_Grafico/CMake_branch/sprites_and_textures/build",
-  "command": "/usr/bin/gcc   -g -o CMakeFiles/Atividades_processamento_grafico.dir/src/glad.c.o -c /home/henrique/repos/Atividades_Processamento_Grafico/CMake_branch/sprites_and_textures/src/glad.c",
-  "file": "/home/henrique/repos/Atividades_Processamento_Grafico/CMake_branch/sprites_and_textures/src/glad.c"
+  "directory": "/home/haaghenrique/Documents/repos/Atividades_Processamento_Grafico/CMake_branch/sprites_and_textures/build",
+  "command": "/usr/bin/c89-gcc   -g -o CMakeFiles/Atividades_processamento_grafico.dir/src/glad.c.o -c /home/haaghenrique/Documents/repos/Atividades_Processamento_Grafico/CMake_branch/sprites_and_textures/src/glad.c",
+  "file": "/home/haaghenrique/Documents/repos/Atividades_Processamento_Grafico/CMake_branch/sprites_and_textures/src/glad.c",
+  "output": "CMakeFiles/Atividades_processamento_grafico.dir/src/glad.c.o"
 },
 {
-  "directory": "/home/henrique/repos/Atividades_Processamento_Grafico/CMake_branch/sprites_and_textures/build",
-  "command": "/usr/bin/g++   -g -o CMakeFiles/Atividades_processamento_grafico.dir/src/Sprites.cpp.o -c /home/henrique/repos/Atividades_Processamento_Grafico/CMake_branch/sprites_and_textures/src/Sprites.cpp",
-  "file": "/home/henrique/repos/Atividades_Processamento_Grafico/CMake_branch/sprites_and_textures/src/Sprites.cpp"
+  "directory": "/home/haaghenrique/Documents/repos/Atividades_Processamento_Grafico/CMake_branch/sprites_and_textures/build",
+  "command": "/usr/bin/c++   -g -o CMakeFiles/Atividades_processamento_grafico.dir/src/Sprites.cpp.o -c /home/haaghenrique/Documents/repos/Atividades_Processamento_Grafico/CMake_branch/sprites_and_textures/src/Sprites.cpp",
+  "file": "/home/haaghenrique/Documents/repos/Atividades_Processamento_Grafico/CMake_branch/sprites_and_textures/src/Sprites.cpp",
+  "output": "CMakeFiles/Atividades_processamento_grafico.dir/src/Sprites.cpp.o"
 }
 ]
