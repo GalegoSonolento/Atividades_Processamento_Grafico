@@ -10,3 +10,5 @@ Aparentemente o OpenCV não funcionou, preciso ir atrás disso mais tarde -> Ele
 
 Agora que funciona, preciso aprender a usar a biblioteca
 https://docs.opencv.org/4.x/d6/d00/tutorial_py_root.html -> esse link de tutorial da OpenCV pode ajudar (especificamente para python)
+
+O tutorial é muito pica memo
