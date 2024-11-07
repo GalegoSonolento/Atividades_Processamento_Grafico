@@ -1,7 +1,7 @@
 import cv2 as cv
 import sys
  
-img = cv.imread('baboon.png') # original
+img = cv.imread('jojo_teste.jpg') # original
  
 if img is None:
     sys.exit("Could not read the image.")
